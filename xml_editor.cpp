@@ -561,4 +561,22 @@ void XML_Editor::on_actionConvert_To_JSON_triggered()
     }
     inn.close();
 }
+//************************************************** Graph ****************************************************
+void XML_Editor::on_actionGraph_triggered()
+{
+    if (ui->textEdit->toPlainText() == "")
+       {
+           QMessageBox::critical(this, "error", "please open a XML file first");
+           return;
+       }
+   string xml_out = ui->textEdit->toPlainText().toStdString();
+   int n;
+   countNoOfUsers( xml_out, &n);
+   vector<vector<int>>ids(n);
+   usersVector( xml_out, &ids);
+   QString output_qstr = vectorToQString(ids);
+   qstringToFile(output_qstr);
+   QDir::setCurrent("C:\\Users\\Yasser\\Desktop\\XML_Final");
+   system("python visualize.py");
+}
 
