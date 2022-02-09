@@ -14,6 +14,7 @@
 #include <checkConsistency.h>
 #include <compression.h>
 #include <xml_to_json.h>
+#include "helperForGraph.h"
 QT_BEGIN_NAMESPACE
 namespace Ui { class XML_Editor; }
 QT_END_NAMESPACE
@@ -52,6 +53,8 @@ private slots:
     void on_actionCompress_triggered();
 
     void on_actionConvert_To_JSON_triggered();
+
+    void on_actionGraph_triggered();
 
 private:
     Ui::XML_Editor *ui;
